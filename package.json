@@ -1,0 +1,15 @@
+{
+  "name": "findthat.at",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:philhawksworth/findthat.at.git",
+  "author": "Phil Hawksworth <phil@netlify.com>",
+  "license": "MIT",
+  "baseUrl": "https://findthat.at",
+  "scripts": {
+    "shorten": "netlify-shortener"
+  },
+  "dependencies": {
+    "netlify-shortener": "^1.0.3"
+  }
+}
