@@ -1,7 +1,8 @@
-/lambda       https://github.com/netlify/netlify-lambda
-/playground   https://functions-playground.netlify.com/
-/talks        https://www.hawksworx.com/speakings
-/philsblog    https://www.hawksworx.com/blog
-/edit         https://github.com/philhawksworth/findthat.at/edit/master/_redirects
+/eventdriven   https://www.netlify.com/docs/functions/#event-triggered-functions
+/lambda        https://github.com/netlify/netlify-lambda
+/playground    https://functions-playground.netlify.com/
+/talks         https://www.hawksworx.com/speakings
+/philsblog     https://www.hawksworx.com/blog
+/edit          https://github.com/philhawksworth/findthat.at/edit/master/_redirects
 
-/*            https://www.hawksworx.com
+/*             https://www.hawksworx.com
