@@ -1,3 +1,4 @@
+/redirects     https://www.netlify.com/docs/redirects/
 /eventdriven   https://www.netlify.com/docs/functions/#event-triggered-functions
 /lambda        https://github.com/netlify/netlify-lambda
 /playground    https://functions-playground.netlify.com/
