@@ -5,6 +5,7 @@
 /api           https://open-api.netlify.com/
 /repo          https://github.com/philhawksworth/fronteers-workshop
 /redirects     https://www.netlify.com/docs/redirects/
+/functions     https://functions.netlify.com/
 /eventdriven   https://www.netlify.com/docs/functions/#event-triggered-functions
 /lambda        https://github.com/netlify/netlify-lambda
 /playground    https://functions-playground.netlify.com/
