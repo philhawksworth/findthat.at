@@ -6,6 +6,9 @@
   "author": "Phil Hawksworth <phil@netlify.com>",
   "license": "MIT",
   "baseUrl": "https://findthat.at",
+  "bin": {
+    "shorten": "cli.js"
+  },
   "scripts": {
     "shorten": "netlify-shortener"
   },
