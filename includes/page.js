@@ -25,6 +25,10 @@ module.exports = (data) => {
       }
     .dest {
       color:#666;
+      width: 60%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     </style

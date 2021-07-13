@@ -4,8 +4,8 @@
 
 
 [[redirects]]
-  from = "/qr/:path"
-  to = "/.netlify/functions/show-qr?url=https://findthat.at/:path"
+  from = "/qr/*"
+  to = "/.netlify/functions/show-qr"
   status = 200
 
 

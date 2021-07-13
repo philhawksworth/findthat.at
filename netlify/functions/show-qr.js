@@ -9,7 +9,7 @@ const pageTemplate  = require('../../includes/page.js');
 const handler = async event => {
 
   // Get the original short URL (without the qr part of the path)
-  const path = event.path.split("/qr/")[1];
+  const path = event.path.replace("/qr/")[1];
   const shortURL = `${rootURL}/${path}`;
 
   // follow the redirect to get te destination to display
