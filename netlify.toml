@@ -1,0 +1,16 @@
+[build]
+  command = "echo Nothing to build for this site!"
+  publish = ""
+
+
+[[redirects]]
+  from = "/qr/:path"
+  to = "/.netlify/functions/show-qr?url=https://findthat.at/:path"
+  status = 200
+
+
+[[redirects]]
+  from = "*"
+  to = "https://www.hawksworx.com/blog/find-that-at/"
+  status = 302
+

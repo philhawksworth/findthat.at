@@ -13,6 +13,9 @@
     "shorten": "netlify-shortener"
   },
   "dependencies": {
-    "netlify-shortener": "^1.0.3"
+    "@netlify/functions": "^0.7.2",
+    "netlify-shortener": "^1.0.3",
+    "node-fetch": "^2.6.1",
+    "qrcode": "^1.4.4"
   }
 }
