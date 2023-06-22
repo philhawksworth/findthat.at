@@ -1,6 +1,10 @@
 [build]
-  command = "echo Nothing to build for this site!"
-  publish = ""
+  command = "npm run build"
+  publish = "./dist"
+
+[dev]
+  command = ""
+  publish = "./dist"
 
 
 [[redirects]]
@@ -9,6 +13,14 @@
   status = 200
 
 
+# Do this instead of looking for a shortlink redirect 
+[[redirects]]
+  from = "/image/*"
+  to = "/image/:splat"
+  status = 200
+
+
+# Catch-all for any unfound short codes
 [[redirects]]
   from = "*"
   to = "https://www.hawksworx.com/blog/find-that-at/"

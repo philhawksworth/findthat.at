@@ -10,10 +10,11 @@
     "shorten": "cli.js"
   },
   "scripts": {
-    "shorten": "netlify-shortener"
+    "shorten": "netlify-shortener",
+    "build" : "cp ./_redirects ./dist/_redirects"
   },
   "dependencies": {
-    "@netlify/functions": "^0.7.2",
+    "@netlify/functions": "^1.6.0",
     "netlify-shortener": "^1.0.3",
     "node-fetch": "^2.6.1",
     "qrcode": "^1.4.4"

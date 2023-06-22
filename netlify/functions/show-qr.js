@@ -12,7 +12,7 @@ const handler = async event => {
   const path = event.path.split("/qr/")[1];
   const shortURL = `${rootURL}/${path}`;
 
-  // follow the redirect to get te destination to display
+  // follow the redirect to get the destination to display
   const destinationURL = await fetch(shortURL);
 
   // make a QR cade and then return a page displaying it
