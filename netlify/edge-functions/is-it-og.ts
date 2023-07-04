@@ -37,14 +37,6 @@ export default async (request: Request, context: Context) => {
   // return a page with the correct OG data and image link
   if (unfurlers.some(v => agent?.includes(v))) {
     
-    // do we have a custom image?
-    // no image? Pass the request on 
-    const image = await fetch(`${rootDomain}/image${url.pathname}.png`);
-    if(image.status == 404) {
-      context.log(`No custom image for ${url.pathname}`);
-      return;
-    }
-        
     // get the title and description from the final destination page
     const destination = await fetch(`${rootDomain}/${url.pathname}`);
     const html = await destination.text();
@@ -52,6 +44,17 @@ export default async (request: Request, context: Context) => {
     const title =  $('meta[property="og:title"]').attr('content') || "";
     const description =  $('meta[property="og:description"]').attr('content') || "";
     const site =  $('meta[property="og:site_name"]').attr('content') || "";
+    const og_og =  $('meta[property="og:image"]').attr('content') || "";
+      
+    // do we have a custom image?
+    // no image? Pass the request on 
+    // Twitter downgrades YouTube URLs to small cards, so let's offer 
+    // a large card even if we don't have a custom OG image of our own
+    const image = await fetch(`${rootDomain}/image${url.pathname}.png`);
+    if((image.status == 404) && (site !== "YouTube")) {
+      context.log(`No custom image for ${url.pathname}`);
+      return;
+    }
     
     // Populate our OG page template
     // and return it as HTML
@@ -60,8 +63,10 @@ export default async (request: Request, context: Context) => {
       title: title,
       description: description,
       path: url.pathname,
-      domain: rootDomain
-    })
+      domain: rootDomain,
+      original_og: site == "YouTube" ? og_og : null
+    });
+
     return new Response(ogPage, {
       headers: { "content-type": "text/html" },
     });

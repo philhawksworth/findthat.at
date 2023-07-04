@@ -1,4 +1,14 @@
+const imageURL = function(data) {
+  if(data.original_og) {
+    return `${data.original_og}`;
+  } else {
+    return `${data.domain}/image${data.path}.png`;
+  }
+};
+
 export default (data) => {
+
+
  return `
  <!DOCTYPE html>
  <html lang="en">
@@ -13,17 +23,17 @@ export default (data) => {
    <meta name="twitter:title" content="${data.title}"/>
    <meta name="twitter:description" content="${data.description}"/>
    <meta name="twitter:creator" content="${data.site}"/>
-   <meta name="twitter:image" content="${data.domain}/image${data.path}.png"/>
-   <meta name="og:image" content="${data.domain}/image${data.path}.png"/>
-   <meta name="og:image:secure_url" content="${data.domain}/image${data.path}.png"/>
-   <meta name="image" property="og:image" content="${data.domain}/image${data.path}.png"/>
+   <meta name="twitter:image" content="${imageURL(data)}"/>
+   <meta name="og:image" content="${imageURL(data)}"/>
+   <meta name="og:image:secure_url" content="$${imageURL(data)}"/>
+   <meta name="image" property="og:image" content="${imageURL(data)}"/>
    <meta property="og:site_name" content="${data.site}"/>
    <meta property="og:title" content="${data.title}"/>
    <meta property="og:description" content="${data.description}"/>
  </head>
  <body>
    <h1>OG image for this URL</h1>
-   <img src="${data.domain}/image/${data.path}.png" />
+   <img src="${imageURL(data)}" />
  </body>
  </html>
  `;
