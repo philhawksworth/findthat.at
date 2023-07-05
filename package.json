@@ -11,7 +11,8 @@
   },
   "scripts": {
     "shorten": "netlify-shortener",
-    "build" : "cp ./_redirects ./dist/_redirects"
+    "build" : "cp ./_redirects ./dist/_redirects",
+    "start" : "npm run build && BROWSER=none ntl dev --live=test"
   },
   "dependencies": {
     "@netlify/functions": "^1.6.0",

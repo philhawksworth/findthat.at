@@ -6,6 +6,9 @@
   command = ""
   publish = "./dist"
 
+[functions]
+  node_bundler = "esbuild"
+
 
 [[redirects]]
   from = "/qr/*"

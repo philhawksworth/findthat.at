@@ -7,8 +7,6 @@ const imageURL = function(data) {
 };
 
 export default (data) => {
-
-
  return `
  <!DOCTYPE html>
  <html lang="en">

@@ -1,16 +1,16 @@
 const { builder }   = require("@netlify/functions");
 const QRCode        = require('qrcode');
-const fetch         = require('node-fetch');
 const rootURL       = "https://findthat.at";
 const pageTemplate  = require('../../includes/page.js');
 
+import fetch from "node-fetch";
 
 
 const handler = async event => {
 
   // Get the original short URL (without the qr part of the path)
   const path = event.path.split("/qr/")[1];
-  const shortURL = `${rootURL}/${path}`;
+  const shortURL = `${rootURL}/${path}`; 
 
   // follow the redirect to get the destination to display
   const destinationURL = await fetch(shortURL);
