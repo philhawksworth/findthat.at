@@ -18,7 +18,7 @@ export default async (request: Request, context: Context) => {
   // and return it as HTML
   const ogPage = page({
     site: "Findthat.at",
-    title: "This user-agent is:",
+    title: `This user-agent is: ${agent}`,
     description: agent,
     original_og: `${rootDomain}/image/checking-the-user-agent.png`
   });
