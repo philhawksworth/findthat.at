@@ -2,23 +2,17 @@ import * as cheerio from "https://esm.sh/cheerio@1.0.0-rc.12";
 import type { Config, Context } from "https://edge.netlify.com";
 import page from "../og-page.js";
 
-
-// Prod domain or domain for testing with netlify dev
-const rootDomain = "https://findthat.at";
-// const rootDomain = "https://test--findthatat.netlify.live"; 
-
-
 export default async (request: Request, context: Context) => {
+  
+context.log(context)
 
+  // Prod domain or domain for testing with netlify dev
+  const rootDomain = context.site.url; 
+  // const rootDomain = `https://test--${context.site.name}.netlify.live`;  // Running with `npm start` to access Netlify Dev Live
+  
   // What is being requested
   const url = new URL(request.url);
 
-  // if the request is for an image
-  // just let Netlify handle it as usual. We're done here.
-  if(url.pathname.startsWith("/image/")) {
-    context.log("Serve an image - ", url.pathname);
-    return;
-  }
   
   // User agents of referrers that we server an OG image to 
   // include these strings
@@ -52,7 +46,6 @@ export default async (request: Request, context: Context) => {
     // a large card even if we don't have a custom OG image of our own
     const image = await fetch(`${rootDomain}/image${url.pathname}.png`);
     if((image.status == 404) && (site !== "YouTube")) {
-      context.log(`No custom image for ${url.pathname}`);
       return;
     }
     
@@ -83,5 +76,6 @@ export default async (request: Request, context: Context) => {
 // All requests to this domain come through here
 export const config: Config = {
   path: "/*",
+  excludedPattern: ["/image/", "/agent"],
   onError: "bypass"
 };

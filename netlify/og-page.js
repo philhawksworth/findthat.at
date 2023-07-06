@@ -32,6 +32,7 @@ export default (data) => {
  <body>
    <h1>OG image for this URL</h1>
    <img src="${imageURL(data)}" />
+   <p>${data.description}</p>
  </body>
  </html>
  `;
