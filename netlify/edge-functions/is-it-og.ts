@@ -21,6 +21,8 @@ context.log(context)
     "Twitterbot",
     "LinkedInBot",
     "Mastodon",
+    "Bluesky",
+    "facebookexternalhit",
     // "Mozilla" // for testing
   ];
 
