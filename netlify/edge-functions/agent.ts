@@ -12,20 +12,19 @@ export default async (request: Request, context: Context) => {
    
   // the requesting user agent
   const agent = request.headers.get("user-agent");
-  
-  if (unfurlers.some(v => agent?.includes(v))) {
 
-    // Populate our OG page template
-    // and return it as HTML
-    const ogPage = page({
-      site: "Findthat.at",
-      title: "This user-agent is:",
-      description: agent,
-      original_og: `${rootDomain}/image/checking-the-user-agent.png`
-    });
-    return new Response(ogPage, {
-      headers: { "content-type": "text/html" },
-    });
+
+  // Populate our OG page template
+  // and return it as HTML
+  const ogPage = page({
+    site: "Findthat.at",
+    title: "This user-agent is:",
+    description: agent,
+    original_og: `${rootDomain}/image/checking-the-user-agent.png`
+  });
+  return new Response(ogPage, {
+    headers: { "content-type": "text/html" },
+  });
 
 
     
