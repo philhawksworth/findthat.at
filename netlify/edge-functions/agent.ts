@@ -9,17 +9,7 @@ export default async (request: Request, context: Context) => {
   const rootDomain = context.site.url; 
   // const rootDomain = `https://test--${context.site.name}.netlify.live`;  // Running with `npm start` to access Netlify Dev Live
 
-  // User agents of referrers that we server an OG image to 
-  // include these strings
-  const unfurlers = [
-    "slack",
-    "Twitterbot",
-    "LinkedInBot",
-    "Mastodon",
-    // "Mozilla" // for testing
-  ];
-
-  
+   
   // the requesting user agent
   const agent = request.headers.get("user-agent");
   
@@ -37,11 +27,7 @@ export default async (request: Request, context: Context) => {
       headers: { "content-type": "text/html" },
     });
 
-  } else {
-    // Regular link visitors can just pass by 
-    // and be handled by the redirect rules
-    return;
-  }
+
     
 };
 
